@@ -20,9 +20,10 @@ branches:
   only:
     - master
     - dev
+    - main
 
 deploy:
   provider: heroku
   edge: true
   api_key:
-  app: laravelci
+  app: allamvizsgafinal
