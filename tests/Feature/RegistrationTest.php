@@ -13,40 +13,40 @@ class RegistrationTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
-    {
-        $response = $this->get('/');
+    // public function test_example()
+    // {
+    //     $response = $this->get('/');
 
-        $response->assertStatus(200);
-    }
-    public function testRegistersAValidUser()
-    {
-        $user = User::factory()->create();
+    //     $response->assertStatus(200);
+    // }
+    // public function testRegistersAValidUser()
+    // {
+    //     $user = User::factory()->create();
 
-        $response = $this->post('register', [
-            'name' => $user->name,
-            'email' => $user->email,
-            'password' => 'password',
-            'password_confirmation' => 'password'
-        ]);
+    //     $response = $this->post('register', [
+    //         'name' => $user->name,
+    //         'email' => $user->email,
+    //         'password' => 'password',
+    //         'password_confirmation' => 'password'
+    //     ]);
 
-        $response->assertStatus(302);
+    //     $response->assertStatus(302);
 
-        //$this->assertAuthenticated();
-    }
-    public function testDoesNotRegisterAnInvalidUser()
-    {
-        $user = User::factory()->create();
+    //     //$this->assertAuthenticated();
+    // }
+    // public function testDoesNotRegisterAnInvalidUser()
+    // {
+    //     $user = User::factory()->create();
 
-        $response = $this->post('register', [
-            'name' => $user->name,
-            'email' => $user->email,
-            'password' => 'password',
-            'password_confirmation' => 'invalid'
-        ]);
+    //     $response = $this->post('register', [
+    //         'name' => $user->name,
+    //         'email' => $user->email,
+    //         'password' => 'password',
+    //         'password_confirmation' => 'invalid'
+    //     ]);
 
-        $response->assertSessionHasErrors();
+    //     $response->assertSessionHasErrors();
 
-        $this->assertGuest();
-    }
+    //     $this->assertGuest();
+    // }
 }
