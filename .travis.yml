@@ -1,24 +1,28 @@
-os:
-  - linux
-
 language: php
 
 php:
-  - '7.1'
-  
+  - 7.4
+
+services:
+  - mysql
+
 before_script:
-  - composer self-update
-  - composer install --no-interaction
-  - cp .env.travis .env
-  - pear install pear/PHP_CodeSniffer
-  - phpenv rehash
-  - nvm install 7.7.1
-  - npm install npm@latest -g
-  - npm install -g jshint
-  - npm install
-  
+    - composer update
+    - cp .env.example .env
+    - mysql -e 'CREATE DATABASE laravel;'
+    - php artisan key:generate
+    - php artisan migrate
+
 script:
-  - vendor/bin/phpunit --coverage-text
-  - phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
-  - npm run production
-  - jshint resources/assets/js/modules/*
+  - phpunit
+
+branches:
+  only:
+    - master
+    - dev
+
+deploy:
+  provider: heroku
+  edge: true
+  api_key:
+  app: laravelci
