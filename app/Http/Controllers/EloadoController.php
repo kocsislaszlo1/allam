@@ -23,13 +23,13 @@ class EloadoController extends Controller
     {
         $szekciok = $request->input('szekcio_id');
         $request->validate([
-            'nev' => 'required',
-            'fokozat' => 'required',
-            'intezmeny' => 'required',
-            'eloadascim' => 'required',
-            'email' => 'required',
-            'kivonat' => 'required',
-            'szekcio_id' => 'required',
+            'nev' => 'required|string',
+            'fokozat' => 'required|string',
+            'intezmeny' => 'required|string',
+            'eloadascim' => 'required|string',
+            'email' => 'required|email',
+            'kivonat' => 'required|string',
+            'szekcio_id' => 'required|integer',
         ]);
         $eloadok = new Eloadok([
             'nev' => $request->input('nev'),
@@ -59,13 +59,13 @@ class EloadoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nev' => 'required',
-            'fokozat' => 'required',
-            'intezmeny' => 'required',
-            'eloadascim' => 'required',
-            'email' => 'required',
-            'kivonat' => 'required',
-            'szekcio_id' => 'required',
+            'nev' => 'required|string',
+            'fokozat' => 'required|string',
+            'intezmeny' => 'required|string',
+            'eloadascim' => 'required|string',
+            'email' => 'required|email',
+            'kivonat' => 'required|string',
+            'szekcio_id' => 'required|integer',
         ]);
         $szekciok = $request->input('szekcio_id');
         $eloadok = Eloadok::find($id);

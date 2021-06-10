@@ -26,8 +26,8 @@ class ModeratorokController extends Controller
     {
 
         $request->validate([
-            'users_id' => 'required',
-            'szekcio_id' => 'required',
+            'users_id' => 'required|integer',
+            'szekcio_id' => 'required|integer',
         ]);
         $moderatorok = new Moderatorok([
             'users_id' => $request->input('users_id'),
@@ -52,8 +52,8 @@ class ModeratorokController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'users_id' => 'required',
-            'szekcio_id' => 'required',
+            'users_id' => 'required|integer',
+            'szekcio_id' => 'required|integer',
         ]);
         $moderatorok = Moderatorok::find($id);
         $moderatorok->users_id = $request->input('users_id');

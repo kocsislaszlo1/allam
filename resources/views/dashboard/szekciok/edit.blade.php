@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label for="online">online:</label>
-                            <input type="text" class="form-control" name="online" value="{{ $szekcio->online }}" />
+                            <input type="number" class="form-control" name="online" value="{{ $szekcio->online }}" />
                         </div>
                         <div class="form-group">
                             <label for="esemenyek_id">esemeny_id:</label>

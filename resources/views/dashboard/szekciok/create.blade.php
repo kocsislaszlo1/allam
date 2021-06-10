@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <label for="idopont">Idopont:</label>
-                            <input type="datetime-local" class="form-control" name="idopont" />
+                            <input type="time" class="form-control" name="idopont" />
 
                         </div>
 

@@ -24,11 +24,11 @@ class SzekcioController extends Controller
     {
 
         $request->validate([
-            'szekcionev' => 'required',
-            'idopont' => 'required',
-            'link' => 'required',
-            'online' => 'required',
-            'esemenyek_id' => 'required',
+            'szekcionev' => 'required|string',
+            'idopont' => 'required|string',
+            'link' => 'required|string',
+            'online' => 'required|integer',
+            'esemenyek_id' => 'required|integer',
         ]);
         $szekcio = new Szekciok([
             'szekcionev' => $request->input('szekcionev'),
@@ -56,11 +56,11 @@ class SzekcioController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'szekcionev' => 'required',
-            'idopont' => 'required',
-            'link' => 'required',
-            'online' => 'required',
-            'esemenyek_id' => 'required'
+            'szekcionev' => 'required|string',
+            'idopont' => 'required|string',
+            'link' => 'required|string',
+            'online' => 'required|integer',
+            'esemenyek_id' => 'required|integer',
         ]);
 
         $szekcio = Szekciok::find($id);

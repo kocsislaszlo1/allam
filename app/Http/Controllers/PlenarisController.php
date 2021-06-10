@@ -22,15 +22,15 @@ class PlenarisController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nev' => 'required',
-            'fokozat' => 'required',
-            'intezmeny' => 'required',
-            'eloadascim' => 'required',
-            'email' => 'required',
-            'kivonat' => 'required',
+            'nev' => 'required|string',
+            'fokozat' => 'required|string',
+            'intezmeny' => 'required|string',
+            'eloadascim' => 'required|string',
+            'email' => 'required|email',
+            'kivonat' => 'required|string',
             'kezdete' => 'required',
             'vege' => 'required',
-            'esemenyek_id' => 'required'
+            'esemenyek_id' => 'required|integer'
         ]);
         $plenarisok = new Plenaris([
             'nev' => $request->input('nev'),
@@ -62,15 +62,15 @@ class PlenarisController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nev' => 'required',
-            'fokozat' => 'required',
-            'intezmeny' => 'required',
-            'eloadascim' => 'required',
-            'email' => 'required',
-            'kivonat' => 'required',
+            'nev' => 'required|string',
+            'fokozat' => 'required|string',
+            'intezmeny' => 'required|string',
+            'eloadascim' => 'required|string',
+            'email' => 'required|email',
+            'kivonat' => 'required|string',
             'kezdete' => 'required',
             'vege' => 'required',
-            'esemenyek_id' => 'required',
+            'esemenyek_id' => 'required|integer'
         ]);
         $plenarisok = Plenaris::find($id);
         $esemenyek = $request->input('szekcio_id');
